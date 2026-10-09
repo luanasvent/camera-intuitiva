@@ -14,6 +14,8 @@
 @import url("teams.css");
 @import url("simulator.css");
 
+@import "tailwindcss"; 
+
 .landing-page {
   width: 100%;
   max-width: 1920px;
