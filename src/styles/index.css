@@ -1,6 +1,4 @@
 @import url(global.css);
-@import url(phone-strip-section.css);
-@import url(features-section.css);
 @import url(cta-section.css);
 @import url(footer.css);
 @import url(responsiveness.css);
@@ -33,6 +31,14 @@
   --color-purple-light: #A78BFA;
   --color-card: #141414;
   --color-purple-dark: #4C1D95;
+  --color-overlay: #060606;
+  --color-border-light: #404040;
+  --color-surface-alt: #121212;
+  --color-surface-deep: #101010;
+  --color-gray-50: #FAFAFA;
+  --color-accent-red: #2A1520;
+  --color-accent-orange: #2A1A0F;
+  --color-accent-blue: #0F1F2E;
 }
 
 .landing-page {

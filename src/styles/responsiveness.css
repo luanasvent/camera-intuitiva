@@ -1,81 +1,35 @@
 @media (max-width: 1024px) {
-    .features__row {
-      gap: var(--spacing-20);
-    }
-  
-    .feature-slot,
-    .feature-cards {
-      max-width: 100%;
-    }
-  
-    .phone-strip,
-    .features,
-    .cta,
-    .footer {
-      padding-left: var(--spacing-40);
-      padding-right: var(--spacing-40);
-    }
+  .cta,
+  .footer {
+    padding-left: var(--spacing-40);
+    padding-right: var(--spacing-40);
   }
-  
-  @media (max-width: 768px) {
-    .phone-strip,
-    .features,
-    .cta,
-    .footer {
-      padding-left: var(--spacing-20);
-      padding-right: var(--spacing-20);
-      gap: var(--spacing-16);
-    }
-  
-    .phone-strip__title,
-    .features__title,
-    .cta__title {
-      font-size: var(--font-size-2xl);
-    }
-  
-    .features__subtitle,
-    .cta__subtitle {
-      font-size: var(--font-size-base);
-      max-width: 100%;
-    }
-  
-    .features__row {
-      flex-direction: column;
-      gap: var(--spacing-24);
-      align-items: center;
-    }
-  
-    .feature-slot {
-      width: 100%;
-      height: auto;
-      min-height: 20rem;
-    }
-  
-    .feature-cards {
-      width: 100%;
-    }
-  
-    .feature-compare {
-      gap: var(--spacing-20);
-    }
-  
-    .cta {
-      padding: var(--spacing-40) var(--spacing-20) var(--spacing-40) var(--spacing-20);
-    }
+}
+
+@media (max-width: 768px) {
+  .cta,
+  .footer {
+    padding-left: var(--spacing-20);
+    padding-right: var(--spacing-20);
+    gap: var(--spacing-16);
   }
-  
-  @media (max-width: 480px) {
-    .phone-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-8);
-    }
-  
-    .phone-card {
-      width: 100%;
-      height: 100%;
-    }
-  
-    .footer {
-      padding: var(--spacing-20) var(--spacing-16) var(--spacing-24) var(--spacing-16);
-    }
+
+  .cta__title {
+    font-size: var(--font-size-2xl);
   }
+
+  .cta__subtitle {
+    font-size: var(--font-size-base);
+    max-width: 100%;
+  }
+
+  .cta {
+    padding: var(--spacing-40) var(--spacing-20) var(--spacing-40) var(--spacing-20);
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: var(--spacing-20) var(--spacing-16) var(--spacing-24) var(--spacing-16);
+  }
+}
