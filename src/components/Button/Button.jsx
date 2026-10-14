@@ -1,5 +1,5 @@
 const baseStyles =
-  'inline-flex items-center justify-center rounded-full px-7.5 py-4.5 text-base font-semibold cursor-pointer transition-all duration-300';
+  'inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-xs font-semibold cursor-pointer transition-all duration-300 md:w-auto md:px-7.5 md:py-4.5 md:text-base';
 
 const variants = {
   primary:
