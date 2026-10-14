@@ -1,20 +1,17 @@
+import SectionHeader from '../SectionHeader/SectionHeader.jsx';
 import AudienceCard from './AudienceCard.jsx';
 import { publicoAlvoCards } from '../../data/publicoAlvo.js';
 
 function Audience() {
   return (
-    <section className="audience" id="audience">
-      <div className="audience__container">
-        <header className="audience__header">
-          <h2 className="audience__title">Para quem é destinado?</h2>
+    <section className="w-full bg-surface px-5 py-12 md:px-12 md:py-20" id="audience">
+      <div className="mx-auto w-full max-w-[1400px]">
+        <SectionHeader
+          titulo="Para quem é destinado?"
+          subtitulo="Uma câmera pensada para criadores de conteúdo e estudantes que querem tirar fotos melhores sem precisar dominar configurações profissionais."
+        />
 
-          <p className="audience__subtitle">
-            Uma câmera pensada para criadores de conteúdo e estudantes que querem tirar
-            fotos melhores sem precisar dominar configurações profissionais.
-          </p>
-        </header>
-
-        <div className="audience__grid">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {publicoAlvoCards.map((card) => (
             <AudienceCard key={card.id} titulo={card.titulo} texto={card.texto} />
           ))}
