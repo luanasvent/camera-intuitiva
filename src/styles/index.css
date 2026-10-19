@@ -1,7 +1,4 @@
 @import url(global.css);
-@import url(cta-section.css);
-@import url(footer.css);
-@import url(responsiveness.css);
 @import url(modal.css);
 @import url(alert.css);
 @import url("simulator.css");
@@ -40,6 +37,10 @@
   --color-midnight: #0B071E;
   --color-lavender: #A29BFE;
   --color-border-violet: #2D2454;
+  --color-gold-light: #FDE047;
+  --color-purple-lighter: #E9D5FF;
+  --color-purple-lightest: #DDD6FE;
+  --color-surface-darkest: #050505;
 }
 
 .landing-page {
