@@ -4,8 +4,6 @@
 @import url(responsiveness.css);
 @import url(modal.css);
 @import url(alert.css);
-@import url("gallery.css");
-@import url("teams.css");
 @import url("simulator.css");
 
 @import "tailwindcss"; 
@@ -39,6 +37,9 @@
   --color-accent-red: #2A1520;
   --color-accent-orange: #2A1A0F;
   --color-accent-blue: #0F1F2E;
+  --color-midnight: #0B071E;
+  --color-lavender: #A29BFE;
+  --color-border-violet: #2D2454;
 }
 
 .landing-page {

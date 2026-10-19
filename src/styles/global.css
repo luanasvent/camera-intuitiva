@@ -129,8 +129,6 @@ p {
 button {
   font-family: inherit;
   cursor: pointer;
-  border: none;
-  outline: none;
 }
 
 svg {
