@@ -42,16 +42,24 @@ function Modal({ aberto, inscricoes, aoFechar, aoInscrever }) {
   }
 
   return (
-    <div className={`modal-overlay${aberto ? ' active' : ''}`} onClick={(event) => event.target === event.currentTarget && fechar()}>
-      <div className="modal">
-        <div className="modal__header">
-          <h2 className="modal__title">Se inscrever</h2>
-          <button className="modal__close" aria-label="Fechar modal" onClick={fechar}>
+    <div
+      className={`fixed inset-0 z-[1000] items-center justify-center bg-black/80 ${aberto ? 'flex' : 'hidden'}`}
+      onClick={(event) => event.target === event.currentTarget && fechar()}
+    >
+      <div className="max-h-[90vh] w-[90%] max-w-md overflow-y-auto rounded-3xl border border-white/10 bg-[linear-gradient(135deg,#0f172b_0%,#1d293d_100%)] p-6 shadow-[0_25px_43.75px_rgba(0,0,0,0.25)] md:p-8">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="text-xl font-bold! text-white md:text-2xl">Se inscrever</h2>
+          <button
+            type="button"
+            className="flex cursor-pointer items-center justify-center p-2"
+            aria-label="Fechar modal"
+            onClick={fechar}
+          >
             <img src={xIcon} alt="" />
           </button>
         </div>
 
-        <form className="modal__form" onSubmit={enviar}>
+        <form className="flex flex-col gap-4" onSubmit={enviar}>
           <FormField
             label="Nome completo"
             tipo="text"
@@ -82,8 +90,14 @@ function Modal({ aberto, inscricoes, aoFechar, aoInscrever }) {
             aoSairDoFoco={() => validarCampo('telefone', dados.telefone)}
           />
 
-          <button type="submit" className="modal__submit">Enviar</button>
-          <p className="modal__disclaimer">
+          <button
+            type="submit"
+            className="mt-2 cursor-pointer rounded-[0.875rem] bg-[linear-gradient(90deg,#9810fa,#155dfc)] px-6 py-3 text-base font-bold text-white shadow-[0_8px_21.875px_rgba(0,0,0,0.26)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_31.875px_rgba(0,0,0,0.35)] md:px-8 md:py-4 md:text-lg"
+          >
+            Enviar
+          </button>
+
+          <p className="text-center text-xs leading-normal text-white/40!">
             Ao se cadastrar, você concorda em receber comunicações sobre produtos e ofertas.
           </p>
         </form>

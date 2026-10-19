@@ -1,6 +1,4 @@
 @import url(global.css);
-@import url(modal.css);
-@import url(alert.css);
 @import url("simulator.css");
 
 @import "tailwindcss"; 
@@ -41,6 +39,7 @@
   --color-purple-lighter: #E9D5FF;
   --color-purple-lightest: #DDD6FE;
   --color-surface-darkest: #050505;
+  --color-error: #FB2C36;
 }
 
 .landing-page {
