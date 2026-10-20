@@ -15,7 +15,7 @@ function HistoryList({ historico, aoLimpar }) {
       </div>
 
       {historico.length === 0 ? (
-        <p className="text-xs text-gray-500!">Nenhuma análise realizada ainda.</p>
+        <p className="text-xs text-gray-500">Nenhuma análise realizada ainda.</p>
       ) : (
         <div className="flex max-h-56 flex-col gap-2 overflow-y-auto pr-1 [scrollbar-color:#3F3F46_transparent] [scrollbar-width:thin]">
           {historico.map((analise) => (

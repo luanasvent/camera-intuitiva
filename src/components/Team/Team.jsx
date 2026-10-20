@@ -9,7 +9,7 @@ function Team() {
         <SectionHeader
           titulo="Nossa Equipe"
           subtitulo="Os criadores da Diamond Eye."
-          corSubtitulo="text-lavender!"
+          corSubtitulo="text-lavender"
         />
 
         <div className="flex w-full flex-row flex-wrap justify-center gap-6">

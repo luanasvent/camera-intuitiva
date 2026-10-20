@@ -16,7 +16,7 @@ function CTA({ totalInscritos, aoAbrirModal }) {
         Cadastre-se para receber atualizações
       </h2>
 
-      <p className="max-w-full text-center text-base leading-[1.55] text-purple-lighter! md:max-w-180 md:text-lg">
+      <p className="max-w-full text-center text-base leading-[1.55] text-purple-lighter md:max-w-180 md:text-lg">
         Receba novidades do projeto, acesso antecipado a demos e possíveis vouchers para quem quiser acompanhar de perto o lançamento.
       </p>
 
@@ -24,7 +24,7 @@ function CTA({ totalInscritos, aoAbrirModal }) {
         Quero ser atualizado(a)!
       </Button>
 
-      <p className="text-center text-xs text-purple-lightest!">
+      <p className="text-center text-xs text-purple-lightest">
         *Mais de {totalInteressados} pessoas já deixaram o e-mail na lista de interesse.
       </p>
     </section>

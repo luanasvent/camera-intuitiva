@@ -18,7 +18,7 @@ function Gallery() {
         <SectionHeader
           titulo="Galeria de Capturas"
           subtitulo="Veja fotos reais tiradas com os modos automáticos e inteligência artificial da nossa câmera."
-          corSubtitulo="text-lavender!"
+          corSubtitulo="text-lavender"
         />
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5">

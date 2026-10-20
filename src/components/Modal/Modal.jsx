@@ -48,7 +48,7 @@ function Modal({ aberto, inscricoes, aoFechar, aoInscrever }) {
     >
       <div className="max-h-[90vh] w-[90%] max-w-md overflow-y-auto rounded-3xl border border-white/10 bg-[linear-gradient(135deg,#0f172b_0%,#1d293d_100%)] p-6 shadow-[0_25px_43.75px_rgba(0,0,0,0.25)] md:p-8">
         <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-xl font-bold! text-white md:text-2xl">Se inscrever</h2>
+          <h2 className="text-xl font-bold text-white md:text-2xl">Se inscrever</h2>
           <button
             type="button"
             className="flex cursor-pointer items-center justify-center p-2"
@@ -97,7 +97,7 @@ function Modal({ aberto, inscricoes, aoFechar, aoInscrever }) {
             Enviar
           </button>
 
-          <p className="text-center text-xs leading-normal text-white/40!">
+          <p className="text-center text-xs leading-normal text-white/40">
             Ao se cadastrar, você concorda em receber comunicações sobre produtos e ofertas.
           </p>
         </form>

@@ -11,11 +11,11 @@ function AlertSuccess({ aberto, aoFechar }) {
           <img className="size-20" src={circleCheck} alt="" />
         </div>
 
-        <h2 className="mt-2 text-2xl font-bold! tracking-[0.02em] text-white md:text-3xl">
+        <h2 className="mt-2 text-2xl font-bold tracking-[0.02em] text-white md:text-3xl">
           Parabéns! 🎉
         </h2>
 
-        <p className="text-sm leading-normal text-white/80! md:text-base">
+        <p className="text-sm leading-normal text-white/80 md:text-base">
           Você está inscrito e receberá todas as novidades e atualizações sobre o nosso projeto
         </p>
 

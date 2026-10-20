@@ -1,8 +1,8 @@
-@import url(global.css);
-
-@import "tailwindcss"; 
+@import "tailwindcss";
 
 @theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
   --color-gold: #FFD700;
   --color-gold-dark: #C9A227;
   --color-surface: #0F0F0F;
@@ -41,9 +41,16 @@
   --color-error: #FB2C36;
 }
 
-.landing-page {
-  width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-  background-color: var(--color-black);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-black text-gray-50 leading-[1.6];
+  }
+
+  button {
+    cursor: pointer;
+  }
 }

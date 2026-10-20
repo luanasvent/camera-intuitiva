@@ -10,7 +10,7 @@ function Footer() {
         </div>
       </div>
 
-      <p className="text-xs leading-[1.6] text-gray-500!">
+      <p className="text-xs leading-[1.6] text-gray-500">
         © 2026 SmartCam AI — câmera intuitiva com modos e configurações guiados por algoritmos. Hardware em fase final; lançamento previsto para 05/2026.
       </p>
     </footer>

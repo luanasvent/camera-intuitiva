@@ -5,11 +5,11 @@ function TeamCard({ nome, rm, foto }) {
         <img src={foto} alt={nome} className="size-full object-cover" />
       </div>
 
-      <h3 className="mb-2 text-[1.15rem] leading-[1.3] font-semibold! text-white">
+      <h3 className="mb-2 text-[1.15rem] leading-[1.3] font-semibold text-white">
         {nome}
       </h3>
 
-      <p className="text-[0.9rem] text-lavender!">{rm}</p>
+      <p className="text-[0.9rem] text-lavender">{rm}</p>
     </div>
   );
 }
