@@ -1,8 +1,12 @@
 function TitleStack() {
   return (
-    <div className="title-stack">
-      <h1 className="title-stack__primary">Câmera que</h1>
-      <h1 className="title-stack__gradient">Pensa por Você</h1>
+    <div className="flex flex-col gap-1">
+      <h1 className="text-2xl leading-[1.2] font-extrabold text-white sm:text-[2rem] md:text-6xl">
+        Câmera que
+      </h1>
+      <h1 className="bg-[linear-gradient(90deg,#A855F7,#6366F1_55%,#3B82F6)] bg-clip-text text-2xl leading-[1.2] font-extrabold text-transparent sm:text-[2rem] md:text-6xl">
+        Pensa por Você
+      </h1>
     </div>
   );
 }

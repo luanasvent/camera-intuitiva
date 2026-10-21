@@ -1,9 +1,11 @@
 function AudienceCard({ titulo, texto }) {
   return (
-    <article className="audience__card">
-      <h3 className="audience__card-title">{titulo}</h3>
+    <article className="rounded-lg border border-border-subtle bg-card p-8">
+      <h3 className="mb-4 text-3xl leading-[1.2] font-extrabold text-white">
+        {titulo}
+      </h3>
 
-      <p className="audience__card-text">{texto}</p>
+      <p className="text-base leading-[1.8] text-gray-400">{texto}</p>
     </article>
   );
 }

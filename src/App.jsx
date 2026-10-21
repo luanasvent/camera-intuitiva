@@ -40,7 +40,7 @@ function App() {
     <>
       <Header />
 
-      <main className="landing-page">
+      <main className="mx-auto w-full max-w-[1920px] bg-black">
         <Hero aoAbrirModal={abrirModal} />
         <Solution />
         <Audience />
