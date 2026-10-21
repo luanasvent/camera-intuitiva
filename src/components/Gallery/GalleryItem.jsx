@@ -1,15 +1,19 @@
-function GalleryItem({ imagem, alt, tag, favorito, aoAlternarFavorito }) {
+import { Link } from 'react-router-dom';
+
+function GalleryItem({ id, imagem, alt, tag, favorito, aoAlternarFavorito }) {
   const favoriteStyles = favorito
     ? 'border-gold text-gold'
     : 'border-border-violet text-lavender hover:border-gold';
 
   return (
     <div className="relative overflow-hidden rounded-md border border-border-violet transition-transform duration-300 hover:-translate-y-[5px]">
-      <img src={imagem} alt={alt} className="block h-[250px] w-full object-cover" />
+      <Link to={`/foto/${id}`}>
+        <img src={imagem} alt={alt} className="block h-[250px] w-full object-cover" />
 
-      <span className="absolute bottom-3.75 left-3.75 rounded-full border border-gold bg-midnight/80 px-3 py-1.5 text-[0.85rem] font-bold text-gold">
-        {tag}
-      </span>
+        <span className="absolute bottom-3.75 left-3.75 rounded-full border border-gold bg-midnight/80 px-3 py-1.5 text-[0.85rem] font-bold text-gold">
+          {tag}
+        </span>
+      </Link>
 
       <button
         type="button"
