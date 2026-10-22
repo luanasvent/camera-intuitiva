@@ -4,7 +4,9 @@ async function request(caminho) {
   const resposta = await fetch(`${API_URL}${caminho}`);
 
   if (!resposta.ok) {
-    throw new Error('Não foi possível carregar os dados.');
+    const erro = new Error('Não foi possível carregar os dados.');
+    erro.status = resposta.status;
+    throw erro;
   }
 
   return resposta.json();
@@ -13,4 +15,24 @@ async function request(caminho) {
 export const api = {
   getFotos: () => request('/photos'),
   getFoto: (id) => request(`/photos/${id}`),
+
+  async login(email, senha) {
+    let usuarios = [];
+
+    try {
+      usuarios = await request(`/users?email=${encodeURIComponent(email)}`);
+    } catch (erro) {
+      if (erro.status !== 404) throw erro;
+    }
+
+    const usuario = usuarios.find(
+      (item) => item.email.toLowerCase() === email.toLowerCase() && item.senha === senha
+    );
+
+    if (!usuario) {
+      throw new Error('E-mail ou senha incorretos.');
+    }
+
+    return { id: usuario.id, nome: usuario.nome, email: usuario.email };
+  },
 };
