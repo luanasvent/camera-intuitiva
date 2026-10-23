@@ -6,7 +6,7 @@ import Loader from '../Loader/Loader.jsx';
 import ErrorMessage from '../ErrorMessage/ErrorMessage.jsx';
 import { api } from '../../services/api.js';
 import { useFetch } from '../../hooks/useFetch.js';
-import { useLocalStorage } from '../../hooks/useLocalStorage.js';
+import { useFavorites } from '../../hooks/useFavorites.js';
 
 function capitalizar(texto) {
   return texto.charAt(0).toUpperCase() + texto.slice(1);
@@ -14,14 +14,8 @@ function capitalizar(texto) {
 
 function Gallery() {
   const { dados: fotos, carregando, erro, recarregar } = useFetch(api.getFotos);
-  const [favoritos, setFavoritos] = useLocalStorage('galeria-favoritos', []);
+  const { alternarFavorito, ehFavorito } = useFavorites();
   const [filtro, setFiltro] = useState('todos');
-
-  function alternarFavorito(id) {
-    setFavoritos((atual) => (
-      atual.includes(id) ? atual.filter((item) => item !== id) : [...atual, id]
-    ));
-  }
 
   const modos = fotos ? [...new Set(fotos.map((foto) => foto.modo))] : [];
 
@@ -33,7 +27,7 @@ function Gallery() {
 
   const fotosVisiveis = (fotos ?? []).filter((foto) => {
     if (filtro === 'todos') return true;
-    if (filtro === 'favoritos') return favoritos.includes(foto.id);
+    if (filtro === 'favoritos') return ehFavorito(foto.id);
     return foto.modo === filtro;
   });
 
@@ -65,7 +59,7 @@ function Gallery() {
                     imagem={foto.imagem}
                     alt={foto.alt}
                     tag={foto.tag}
-                    favorito={favoritos.includes(foto.id)}
+                    favorito={ehFavorito(foto.id)}
                     aoAlternarFavorito={() => alternarFavorito(foto.id)}
                   />
                 ))}
