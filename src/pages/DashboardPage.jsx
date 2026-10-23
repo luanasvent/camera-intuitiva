@@ -6,17 +6,16 @@ import HistoryList from '../components/Simulator/HistoryList.jsx';
 import { api } from '../services/api.js';
 import { useAuth } from '../hooks/useAuth.js';
 import { useFetch } from '../hooks/useFetch.js';
-import { useLocalStorage } from '../hooks/useLocalStorage.js';
-import { calcularEstatisticas } from '../utils/analiseDeCena.js';
+import { useFavorites } from '../hooks/useFavorites.js';
+import { useSimulator } from '../hooks/useSimulator.js';
 
 function DashboardPage() {
   const { usuario } = useAuth();
   const { dados: fotos, carregando, erro, recarregar } = useFetch(api.getFotos);
-  const [favoritos] = useLocalStorage('galeria-favoritos', []);
-  const [historico, setHistorico] = useLocalStorage('simulador-historico', []);
+  const { favoritos } = useFavorites();
+  const { historico, estatisticas, limparHistorico } = useSimulator();
 
   const fotosFavoritas = (fotos ?? []).filter((foto) => favoritos.includes(foto.id));
-  const estatisticas = calcularEstatisticas(historico);
 
   return (
     <section className="bg-midnight px-5 py-12 md:px-12">
@@ -73,7 +72,7 @@ function DashboardPage() {
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <StatsPanel estatisticas={estatisticas} />
-          <HistoryList historico={historico} aoLimpar={() => setHistorico([])} />
+          <HistoryList historico={historico} aoLimpar={limparHistorico} />
         </div>
       </div>
     </section>
