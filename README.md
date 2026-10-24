@@ -1,81 +1,126 @@
-# camera-intuitiva
+# SmartCam AI — Diamond Eye
 
-Landing page do **Diamond Eye / SmartCam AI**, uma câmera que analisa a cena em tempo real e ajusta ISO, exposição e foco automaticamente. Projeto acadêmico da FIAP, migrado de HTML/CSS/JS puro para React (Vite).
+Landing page do **Diamond Eye / SmartCam AI**, uma câmera que analisa a cena em tempo real e ajusta ISO, exposição e foco automaticamente. Projeto acadêmico da FIAP.
 
-## Seções da página
+A base do projeto (landing page em React e simulador) foi criada em grupo na Sprint 3. Na **Sprint 4**, foi evoluído com: estilização com Tailwind CSS, rotas públicas e privadas com React Router, consumo de API, login, hooks customizados, responsividade e deploy.
 
-- **Header** — navegação por âncora (A Solução, Público-Alvo, Galeria, Nossa Equipe).
-- **Hero** — título, subtítulo, estatísticas do produto, chips de recursos e mockups de smartphone.
-- **A solução** — o problema e como o Modo Automático resolve.
-- **Público-alvo** — os perfis de usuário do produto.
-- **Telas reais em smartphones** — GIFs demonstrando o app em uso.
-- **Tecnologia que transforma** — cards de recursos (detecção de cena, ajuste de parâmetros, enquadramento).
-- **Simulador de Modo Automático** — simula a análise de cena da câmera: sorteia um modo, calcula ISO, exposição, abertura e confiança, e mantém histórico e estatísticas.
-- **Galeria de Capturas** — fotos de exemplo por modo, com opção de favoritar.
-- **Nossa Equipe** — cards dos integrantes do grupo.
-- **CTA** — chamada para inscrição na lista de interesse, com contador dinâmico.
-- **Footer**.
-- **Modal de inscrição** e **alerta de sucesso**.
+## Links
+
+- **Deploy (Vercel):** https://smartcam-ai-five.vercel.app/
+- **Repositório (Git):** https://github.com/luanasvent/camera-intuitiva
 
 ## Tecnologias utilizadas
 
-- React 18 (componentes funcionais, JavaScript puro, sem TypeScript)
+- React (componentes funcionais, JavaScript puro, sem TypeScript)
 - Vite
-- CSS puro seguindo metodologia BEM (sem bibliotecas de UI)
+- Tailwind CSS
+- React Router (rotas públicas e privadas)
+- MockAPI (API mockada, em mockapi.io)
+- Git e GitHub
+- Vercel (deploy)
 
-## Como instalar
+## Como instalar as dependências
+
+É necessário ter o **Node.js 20 ou superior** instalado.
 
 ```bash
+git clone https://github.com/luanasvent/camera-intuitiva.git
+cd camera-intuitiva
 npm install
 ```
 
-## Como executar
+## Como executar o projeto
 
 ```bash
-npm run dev       # ambiente de desenvolvimento
+npm run dev       # ambiente de desenvolvimento (abre em http://localhost:5173)
 npm run build     # build de produção em dist/
 npm run preview   # serve o build de produção localmente
 ```
+
+## Usuários e senhas de teste
+
+O projeto tem login e uma rota privada (`/dashboard`).
+
+| E-mail | Senha |
+|---|---|
+| teste@smartcam.com | 123456 |
+
+Para testar:
+
+1. Abrir `/dashboard` sem estar logado: o site redireciona para `/login`.
+2. Entrar com o usuário acima: abre o painel com as fotos favoritas e o histórico do simulador.
+3. Clicar em "Sair" no menu: volta para a página inicial e o painel volta a ser bloqueado.
+
+As senhas ficam em texto puro na API mockada porque é um projeto de estudo. Em um sistema real, a senha seria guardada com hash no servidor.
+
+## Rotas
+
+| Rota | Tipo | Descrição |
+|---|---|---|
+| `/` | Pública | Landing page completa; o menu rola até cada seção |
+| `/foto/:id` | Pública | Página de detalhe de uma foto da galeria |
+| `/login` | Pública | Tela de login |
+| `/dashboard` | **Privada** | Painel do usuário (protegida pelo componente `PrivateRoute`) |
+| `*` | Pública | Página 404 |
+
+## Requisitos da Sprint 4
+
+| Requisito | Onde está |
+|---|---|
+| Componentização e props | `src/components/` (um componente por pasta, dados repassados por props de pai para filho) |
+| Rotas públicas e privadas | `src/routes/AppRoutes.jsx` e `src/routes/PrivateRoute.jsx` |
+| Hooks nativos | `useState`, `useEffect`, `useContext`, `useCallback`, `useMemo`, `useReducer`, `useId` |
+| Hooks customizados (lógica separada da parte visual) | `src/hooks/`: `useFetch`, `useAuth`, `useFavorites`, `useModal`, `useSimulator`, `useLocalStorage` |
+| Tailwind CSS | Todo o estilo está em classes do Tailwind; o tema (cores e fontes) fica em `src/styles/index.css` |
+| Responsividade (Desktop, Tablet e Mobile) | Classes `sm:`, `md:` e `lg:`; menu hambúrguer abaixo de 1024px |
+| Consumo de API | `src/services/api.js` e hook `useFetch` (MockAPI) |
+| Deploy com Git + Vercel | Link no início deste README; `vercel.json` na raiz |
+
+## API (MockAPI)
+
+Endereço base: `https://6ad909e6f89c5702ed9a6074.mockapi.io/api/v1`
+
+- `GET /photos` e `GET /photos/:id`: fotos da galeria, com modo, descrição, ISO, exposição e abertura
+- `GET /users?email=...`: usado no login
+
+Todas as chamadas ficam em `src/services/api.js`. As imagens das fotos ficam em `public/fotos`.
 
 ## Estrutura de pastas
 
 ```
 src/
-  components/   um componente por pasta, hierarquia pai -> filho via props
-  data/         arrays com o conteúdo das seções (cards, integrantes, cenas...)
-  hooks/        hooks reutilizáveis (useLocalStorage)
+  components/   um componente por pasta (Hero, Solution, Gallery, Simulator, Header, Layout...)
+  pages/        HomePage, PhotoPage, LoginPage, DashboardPage, NotFoundPage
+  routes/       AppRoutes e PrivateRoute
+  context/      AuthContext e AuthProvider (usuário logado)
+  hooks/        hooks customizados
+  services/     api.js (único arquivo que conhece o endereço da API)
   utils/        lógica pura, separada da UI (validação, análise de cena)
+  data/         conteúdo estático das seções
   assets/       imagens, gifs e ícones
-  styles/       CSS BEM, um arquivo por seção, importados em index.css
+  styles/       index.css (Tailwind e tema)
+public/fotos    imagens da galeria
 prototipo/      versão original em HTML/CSS/JS puro, preservada para referência
+vercel.json     regra para as rotas funcionarem no deploy
 ```
-
-A hierarquia segue pai -> filho: cada seção (`Hero`, `Solution`, `Gallery`, `Team` etc.) busca seus dados em `src/data/`, mapeia com `.map()` e repassa cada item como props para um componente filho (`StatCard`, `SolutionCard`, `GalleryItem`, `TeamCard`...). O `App.jsx` é o único componente que conhece todas as seções e concentra o estado do modal, do alerta e das inscrições, repassando funções e dados via props.
 
 ## localStorage
 
-Usado através do hook `src/hooks/useLocalStorage.js` em quatro pontos:
+Usado em quatro pontos:
 
-- **Inscrições** (`src/components/Modal/Modal.jsx` + `src/App.jsx`, chave `inscricoes`): nome, e-mail e telefone validados no cliente; e-mail duplicado é bloqueado em vez de cadastrado de novo.
-- **Contador do CTA** (`src/components/CTA/CTA.jsx`): soma a base fixa ao total de inscrições salvas.
-- **Histórico do simulador** (`src/components/Simulator/Simulator.jsx`, chave `simulador-historico`): últimas 20 análises, com botão para limpar.
-- **Favoritos da galeria** (`src/components/Gallery/Gallery.jsx`, chave `galeria-favoritos`): fotos marcadas continuam favoritas após recarregar a página.
+- **Inscrições** (`src/components/Layout/Layout.jsx`, chave `inscricoes`): nome, e-mail e telefone validados no cliente; e-mail duplicado é bloqueado.
+- **Histórico do simulador** (`src/hooks/useSimulator.js`, chave `simulador-historico`): últimas 20 análises, com botão para limpar.
+- **Favoritos da galeria** (`src/hooks/useFavorites.js`, chave `galeria-favoritos`).
+- **Sessão do usuário** (`src/context/AuthProvider.jsx`, chave `sessao-usuario`): mantém o login depois de recarregar a página.
 
 ## Objeto Math
 
 Toda a lógica de cálculo do simulador está isolada em `src/utils/analiseDeCena.js`:
 
-- `Math.random()` sorteia o modo da cena (entre comida, retrato, paisagem, animal, noturno e baixa luz, definidos em `src/data/cenas.js`) e gera o código de captura.
+- `Math.random()` sorteia o modo da cena (comida, retrato, paisagem, animal, noturno e baixa luz, definidos em `src/data/cenas.js`) e gera o código de captura.
 - `Math.floor`, `Math.ceil`, `Math.round`, `Math.min`, `Math.max` e `Math.pow` calculam ISO, exposição, abertura e nível de confiança dentro das faixas de cada modo.
-- `toFixed()` formata abertura e exposição.
-- `src/components/Simulator/StatsPanel.jsx` exibe estatísticas calculadas em `calcularEstatisticas()`: total de análises, modo mais frequente, ISO médio e percentual por modo, também usando `Math.round`.
+- `calcularEstatisticas()` calcula total de análises, modo mais frequente, ISO médio e percentual por modo, também com `Math.round`.
 
 ## Integrantes
 
-- Pollyana Valverde — RM569871
-- Luana Lopes — RM569643
-- João Fernando — RM572144
-
-## Usuários e senhas de teste
-
-Não há autenticação nesta aplicação. Não existem usuários, senhas ou login — todas as seções são públicas.
+Grupo Diamond eye: Luana Lopes Sventkauskas (RM 569643), Pollyana Valverde dos Santos (RM 569871) e João Fernando G. Senziani (RM 572144)
